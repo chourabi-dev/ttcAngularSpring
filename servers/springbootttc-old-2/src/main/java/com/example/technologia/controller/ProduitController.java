@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.technologia.entites.Category;
 import com.example.technologia.entites.Produit;
 import com.example.technologia.models.ProduitModel;
-import com.example.technologia.models.ResModel;
-import com.example.technologia.repository.CategoryRepository;
 import com.example.technologia.repository.ProduitRepository;
 
 @RestController
@@ -26,36 +23,17 @@ public class ProduitController {
 	@Autowired
 	private ProduitRepository pr;
 	
-	@Autowired
-	private CategoryRepository cr;
-	
-	
-	
 	// add
 	@PostMapping("/add")
-	public ResModel addNewProduct( @RequestBody ProduitModel p  ) {
-		try {
-			Produit produit = new Produit();
-			
-			produit.setName(p.getName());
-			produit.setPrice(p.getPrice()); 
-			
-			Category c = null;
-			
-			c = this.cr.findById(p.getCategory_id()).get();
-			
-			produit.setCategory(c);
-			
-			
-			pr.save(produit);
-			
-			return new ResModel(true,"Product added successfully !");
-			
-			
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
-			return new ResModel(false,e.getMessage());
-		}
+	public void addNewProduct( @RequestBody ProduitModel p  ) {
+		Produit produit = new Produit();
+		
+		produit.setName(p.getName());
+		produit.setPrice(p.getPrice()); 
+		
+		
+		pr.save(produit);
+		
 		
 	}
 	
@@ -100,15 +78,6 @@ public class ProduitController {
 		return this.pr.findAll();
 	 
 	}
-	
-	
-	// listing
-	@GetMapping("/list/price/{price}")
-	public List<Produit> getProduits(@PathVariable int price){
-		return this.pr.findByPrice(price);		 
-	}
-	
-		
 	
 	
 
