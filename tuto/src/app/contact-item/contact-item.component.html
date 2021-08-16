@@ -1,0 +1,10 @@
+<li class="list-group-item">
+    <h1>{{contact.title}}</h1>
+    <p> {{contact.email}} / {{contact.phone}}</p>
+
+    <button class="btn btn-warning" style="margin-right: 15px;">call</button>
+    <button class="btn btn-warning" (click)="showDate()">show date</button>
+    
+
+    <p *ngIf="canShowDate == true"> {{date | date}} </p>
+</li>

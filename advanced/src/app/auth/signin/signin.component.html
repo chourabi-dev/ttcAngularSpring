@@ -1,0 +1,11 @@
+<div>
+
+    <form [formGroup]="auth" (ngSubmit)="connect()" >
+        <input type="text" formControlName="username" placeholder="username">
+        <br>
+        <input type="password" formControlName="password" placeholder="password">
+        <br>
+    
+        <button [disabled]=" ! auth.valid  " >connect</button>
+    </form>
+</div>

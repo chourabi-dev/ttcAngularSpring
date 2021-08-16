@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <h1>List of transactions</h1>
+
+    <a class="btn btn-primary" routerLink="/one">Add new transaction</a>
+    <hr>
+
+
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Total income</th>
+                    <th scope="col">Spending</th>
+                    <th scope="col">Nett</th>
+                    <th scope="col">Action</th>
+                    
+                  </tr>
+                </thead>
+                <tbody> 
+                    <tr *ngFor="let t of transactions">
+                        <td>{{t.id}}</td>
+                        <td>{{t.oldAmount}}</td>
+                        <td>{{t.bills}}</td>
+                        <td>{{t.result}}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" (click)="delete(t.id)"  >delete</button>
+                        </td>
+                        
+                        
+                    </tr>
+
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+
+</div>
