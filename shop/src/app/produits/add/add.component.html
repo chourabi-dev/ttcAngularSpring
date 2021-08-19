@@ -1,0 +1,44 @@
+
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Add produit</h1>
+ 
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">add</h6>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="update" (ngSubmit)="save()" >
+                <div class="mb-3">
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" formControlName="name">
+                </div>
+                <div class="mb-3">
+                    <label for="">Price</label>
+                    <input type="text" class="form-control"  formControlName="price">
+                </div>
+                <div class="mb-3">
+                    <label for="">Code</label>
+                    <input type="text" class="form-control"  formControlName="code">
+                </div>
+                <div class="mb-3">
+                    <label for="">Category</label>
+                    <select class="form-control"  formControlName="category_id">
+                        <option value="">please choose</option>
+                        <option [value]="c.id" *ngFor="let c of categories">{{c.name}}</option>
+                    </select>
+                </div>
+                
+
+                
+                <div class="mb-3">
+                   <button class="btn btn-primary" type="submit" [disabled]="! update.valid">Ajouter</button>
+                </div>
+                
+                
+            </form>
+        </div>
+    </div>
+

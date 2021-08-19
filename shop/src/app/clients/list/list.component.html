@@ -1,0 +1,45 @@
+
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">My clients</h1>
+    <p class="mb-4">
+        this is a list of all clients
+    </p>
+
+    <p>
+        <a class="btn btn-primary" routerLink="/clients/add"><i class="fas fa-plus"></i> add new client</a>
+    </p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Mes clients</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Code</th>
+                            <th>Fullname</th>
+                            <th>email</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr *ngFor="let c of clients">
+                            <td>{{c.id}}</td>
+                            <td>{{c.code}}</td>
+                            <td>{{c.fullname}}</td>
+                            <td>{{c.email}}</td>
+                            
+
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
